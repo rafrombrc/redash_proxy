@@ -1,9 +1,12 @@
 from flask import Flask, abort, request
+from flask_cors import CORS
 from redash_client.client import RedashClient
 import os
 import sys
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-type'
 
 
 @app.route("/")

@@ -15,5 +15,5 @@ setup(
     # url="https://github.com/rafrombrc/redash_proxy",
     keywords=["redash", "proxy"],
     classifiers=[],
-    install_requires=["redash_client", "flask == 1.0.2"],
+    install_requires=["redash_client", "flask == 1.0.2", "flask-cors"],
 )
