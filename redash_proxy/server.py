@@ -1,6 +1,7 @@
 from flask import Flask, abort, request
 from flask_cors import CORS
 from redash_client.client import RedashClient
+import json
 import os
 import sys
 
@@ -21,7 +22,8 @@ def run_query(data_source_name):
         abort(404)
     data_source_id = data_source["id"]
     query_str = str(request.form["query"])
-    return str(app.redash_client.get_query_results(query_str, data_source_id))
+    results = app.redash_client.get_query_results(query_str, data_source_id)
+    return json.dumps(results)
 
 
 def get_data_sources(redash_client):
